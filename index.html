@@ -329,11 +329,53 @@
       display: flex; justify-content: space-between; align-items: flex-end;
       margin-bottom: 64px; flex-wrap: wrap; gap: 24px;
     }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    /* carousel wrapper */
+    .services-carousel-wrap { position: relative; }
+    .services-carousel-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: calc(100% - 50px);
+      background: linear-gradient(to right, transparent, var(--navy-deep));
+      pointer-events: none; z-index: 2;
     }
+    .services-carousel-nav {
+      display: flex; gap: 10px;
+      position: absolute; top: -72px; right: 0;
+    }
+    .carousel-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(201,168,76,.08); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); cursor: pointer; transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .carousel-btn:hover { background: rgba(201,168,76,.2); border-color: var(--gold); }
+    .carousel-btn svg { width: 18px; height: 18px; pointer-events: none; }
+    .services-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 12px;
+      cursor: grab;
+    }
+    .services-grid:active { cursor: grabbing; }
+    .services-grid::-webkit-scrollbar { height: 4px; }
+    .services-grid::-webkit-scrollbar-track { background: var(--navy-card); border-radius: 2px; }
+    .services-grid::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+    .services-grid::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    /* progress dots */
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 28px;
+    }
+    .carousel-dot {
+      width: 24px; height: 3px; border-radius: 2px;
+      background: var(--border); transition: var(--transition); cursor: pointer;
+    }
+    .carousel-dot.active { background: var(--gold); width: 40px; }
     .service-card {
       background: var(--navy-card);
       border: 1px solid var(--border);
@@ -342,6 +384,9 @@
       position: relative; overflow: hidden;
       transition: var(--transition);
       cursor: default;
+      /* carousel sizing */
+      flex: 0 0 300px;
+      scroll-snap-align: start;
     }
     .service-card::before {
       content: ''; position: absolute;
@@ -760,7 +805,6 @@
 
     /* ─── MOBILE ────────────────────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
       .stat-item:nth-child(2n) { border-bottom: 1px solid var(--border); }
@@ -779,7 +823,6 @@
     @media (max-width: 768px) {
       .navbar-nav, .navbar-cta .btn { display: none; }
       .hamburger { display: flex; }
-      .services-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
       .form-row { grid-template-columns: 1fr; }
@@ -834,8 +877,9 @@
       -->
       <video autoplay muted loop playsinline
         poster="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80">
-        <source src="https://assets.mixkit.co/videos/1303/1303-720.mp4" type="video/mp4" />
-        <source src="https://assets.mixkit.co/videos/24945/24945-720.mp4" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/9686/9686-720.mp4" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/4010/4010-720.mp4" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/3971/3971-720.mp4" type="video/mp4" />
       </video>
       <div class="hero-overlay"></div>
     </div>
@@ -956,7 +1000,17 @@
         </a>
       </div>
 
-      <div class="services-grid">
+      <div class="services-carousel-wrap">
+        <div class="services-carousel-nav">
+          <button class="carousel-btn" id="svc-prev" aria-label="Poprzednia">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-btn" id="svc-next" aria-label="Następna">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="services-grid" id="services-grid">
 
         <!-- Budowa Domów -->
         <div class="service-card">
@@ -1034,7 +1088,105 @@
           </a>
         </div>
 
-      </div>
+        <!-- Projektowanie Wnętrz -->
+        <div class="service-card">
+          <img
+            class="service-card-img"
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=75"
+            alt="Projektowanie wnętrz"
+            loading="lazy"
+          />
+          <div class="service-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3>Projektowanie Wnętrz</h3>
+          <p>Autorskie projekty wnętrz dostosowane do Twojego stylu życia — od koncepcji 3D po wybór materiałów i mebli.</p>
+          <a href="#contact" class="service-card-link">
+            Dowiedz się więcej
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Pompa Ciepła & Fotowoltaika -->
+        <div class="service-card">
+          <img
+            class="service-card-img"
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75"
+            alt="Pompa ciepła i fotowoltaika"
+            loading="lazy"
+          />
+          <div class="service-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Pompa Ciepła & Fotowoltaika</h3>
+          <p>Ekologiczne i ekonomiczne systemy ogrzewania — pompy ciepła, panele fotowoltaiczne i magazyny energii.</p>
+          <a href="#contact" class="service-card-link">
+            Dowiedz się więcej
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Rekuperacja & Klimatyzacja -->
+        <div class="service-card">
+          <img
+            class="service-card-img"
+            src="https://images.unsplash.com/photo-1631545806609-35d8cc313867?w=600&q=75"
+            alt="Rekuperacja i klimatyzacja"
+            loading="lazy"
+          />
+          <div class="service-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+          </div>
+          <h3>Rekuperacja & Klimatyzacja</h3>
+          <p>Wentylacja mechaniczna z odzyskiem ciepła i klimatyzacja kanałowa — czyste powietrze i komfort przez cały rok.</p>
+          <a href="#contact" class="service-card-link">
+            Dowiedz się więcej
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Monitoring & Alarm -->
+        <div class="service-card">
+          <img
+            class="service-card-img"
+            src="https://images.unsplash.com/photo-1558002038-1055e2dae1d7?w=600&q=75"
+            alt="Monitoring i alarm"
+            loading="lazy"
+          />
+          <div class="service-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>Monitoring & Alarm</h3>
+          <p>Systemy monitoringu CCTV, alarmy i wideodomofony — pełna kontrola nad bezpieczeństwem Twojej nieruchomości.</p>
+          <a href="#contact" class="service-card-link">
+            Dowiedz się więcej
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Koordynacja Budowy -->
+        <div class="service-card">
+          <img
+            class="service-card-img"
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75"
+            alt="Koordynacja budowy"
+            loading="lazy"
+          />
+          <div class="service-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Koordynacja Budowy</h3>
+          <p>Profesjonalny kierownik projektu nadzoruje każdy etap — harmonogram, ekipy, materiały i odbiory techniczne.</p>
+          <a href="#contact" class="service-card-link">
+            Dowiedz się więcej
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /.services-grid -->
+
+        <div class="carousel-dots" id="svc-dots"></div>
+      </div><!-- /.services-carousel-wrap -->
     </div>
   </section>
 
@@ -1480,6 +1632,61 @@
 
   <!-- ═══════════════════════════════════════════════════════════ JS -->
   <script>
+    // ── Services carousel ──────────────────────────────────────────
+    const grid   = document.getElementById('services-grid');
+    const cards  = grid ? grid.querySelectorAll('.service-card') : [];
+    const dotsWrap = document.getElementById('svc-dots');
+    const cardW  = () => cards[0] ? cards[0].offsetWidth + 20 : 320; // width + gap
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Karta ' + (i + 1));
+      d.addEventListener('click', () => scrollTo(i));
+      if (dotsWrap) dotsWrap.appendChild(d);
+    });
+
+    function scrollTo(idx) {
+      if (!grid) return;
+      grid.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
+    }
+
+    function updateDots() {
+      if (!grid || !dotsWrap) return;
+      const idx = Math.round(grid.scrollLeft / cardW());
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === idx));
+    }
+
+    if (grid) {
+      grid.addEventListener('scroll', updateDots, { passive: true });
+
+      document.getElementById('svc-prev')?.addEventListener('click', () => {
+        const idx = Math.round(grid.scrollLeft / cardW());
+        scrollTo(Math.max(0, idx - 1));
+      });
+      document.getElementById('svc-next')?.addEventListener('click', () => {
+        const idx = Math.round(grid.scrollLeft / cardW());
+        scrollTo(Math.min(cards.length - 1, idx + 1));
+      });
+
+      // Drag to scroll
+      let isDown = false, startX = 0, scrollLeft = 0;
+      grid.addEventListener('mousedown', e => {
+        isDown = true; startX = e.pageX - grid.offsetLeft;
+        scrollLeft = grid.scrollLeft; grid.style.cursor = 'grabbing';
+      });
+      grid.addEventListener('mouseleave', () => { isDown = false; grid.style.cursor = 'grab'; });
+      grid.addEventListener('mouseup',    () => { isDown = false; grid.style.cursor = 'grab'; });
+      grid.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - grid.offsetLeft;
+        grid.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+    }
+
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
