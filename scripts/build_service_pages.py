@@ -101,7 +101,7 @@ def render_page(data: dict) -> str:
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="{html.escape(data['meta_desc'])}" />
     <title>{html.escape(data['title'])}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -440,6 +440,7 @@ def render_page(data: dict) -> str:
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {{
         link.addEventListener("click", () => {{
           if (window.matchMedia("(max-width: 968px)").matches) {{
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }}
         }});
@@ -495,6 +496,7 @@ def render_page(data: dict) -> str:
         }});
       }});
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>
 """

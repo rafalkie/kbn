@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Rekuperacja z odzyskiem ciepła i klimatyzacja precyzyjna — projekt przebiegu kanałów, montaż i balans powietrza." />
     <title>Rekuperacja i klimatyzacja — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -275,20 +275,20 @@
             <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=900&amp;q=80" alt="Kanały wentylacyjne w suficie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1631545244895-9578d7867d76?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1631545244895-9578d7867d76?w=600&amp;q=75" alt="Montaż instalacji i izolacji" loading="lazy" />
+            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&amp;q=75" alt="Montaż instalacji i izolacji" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&amp;q=75" alt="Jednostka klimatyzacji na elewacji" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1635067077024-6eb8d054a222?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1635067077024-6eb8d054a222?w=600&amp;q=75" alt="Sterownik klimatyzacji na ścianie" loading="lazy" />
+            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&amp;q=75" alt="Sterownik klimatyzacji na ścianie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1693715079095-93d5d4eae4d4?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1693715079095-93d5d4eae4d4?w=600&amp;q=75" alt="Nawiewnik w ścianie lub oknie" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=600&amp;q=75" alt="Nawiewnik w ścianie lub oknie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1693715079174-5099bbb7d065?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1693715079174-5099bbb7d065?w=600&amp;q=75" alt="Prace instalacyjne w nowym domu" loading="lazy" />
+            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&amp;q=75" alt="Prace instalacyjne w nowym domu" loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Projekt i wykonanie instalacji elektrycznych, wod-kan i C.O. z rozdzielnicami, pomiarami i protokołami — Podkarpacie." />
     <title>Instalacje elektryczne i hydrauliczne — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -284,11 +284,11 @@
             <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1542361345-89e58247f2d5?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1542361345-89e58247f2d5?w=600&amp;q=75" alt="Przewody elektryczne w nowym domu" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1574359411659-15573aefb314?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1574359411659-15573aefb314?w=600&amp;q=75" alt="Węzły sanitarnące i kolektory" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&amp;q=75" alt="Węzły sanitarnące i kolektory" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1631545244895-9578d7867d76?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1631545244895-9578d7867d76?w=600&amp;q=75" alt="Izolacja termiczna rur C.O." loading="lazy" />
+            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&amp;q=75" alt="Izolacja termiczna rur C.O." loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

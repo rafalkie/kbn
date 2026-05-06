@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Pompa ciepła, instalacja fotowoltaiczna i magazyn energii — dobór urządzeń, przyłącza i dokumentacja powykonawcza." />
     <title>Pompa ciepła i fotowoltaika — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -275,17 +275,17 @@
             <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=900&amp;q=80" alt="Panele fotowoltaiczne na dachu domu" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1613665763489-845dc00d61c7?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1613665763489-845dc00d61c7?w=600&amp;q=75" alt="Jednostka zewnętrzna pompy ciepła" loading="lazy" />
+            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=600&amp;q=75" alt="Jednostka zewnętrzna pompy ciepła" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1559302504-64aae6ca7b6d?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1559302504-64aae6ca7b6d?w=600&amp;q=75" alt="Ładowarka EV przy garażu" loading="lazy" />
+            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&amp;q=75" alt="Ładowarka EV przy garażu" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1497435334941-0c899eeae980?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1497435334941-0c899eeae980?w=600&amp;q=75" alt="Inwerter i okablowanie AC" loading="lazy" />
+            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&amp;q=75" alt="Inwerter i okablowanie AC" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1592833159156-ffab40d3e7c3?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1592833159156-ffab40d3e7c3?w=600&amp;q=75" alt="Magazyn energii w garażu" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&amp;q=75" alt="Magazyn energii w garażu" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&amp;q=75" alt="Wiatraki i energia odnawialna — inspiracja" loading="lazy" />
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

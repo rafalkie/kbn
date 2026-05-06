@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Projekt wnętrz 3D, dobór materiałów i realizacja koordynowana — KBN Signature Homes, Podkarpacie." />
     <title>Projektowanie wnętrz — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -272,23 +272,23 @@
           </div>
 
           <div class="svc-gallery-mosaic">
-            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9f?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9f?w=900&amp;q=80" alt="Salon designerski z sofą i oknem" loading="lazy" />
+            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&amp;q=80" alt="Salon designerski z sofą i oknem" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1615873968403-89e068629265?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=600&amp;q=75" alt="Minimalistyczna jadalnia przy kuchni" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1600210491369-e766d693c290?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1600210491369-e766d693c290?w=600&amp;q=75" alt="Apartament loftowy z mikrocementem" loading="lazy" />
+            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&amp;q=75" alt="Apartament loftowy z mikrocementem" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1594620302200-9a7612443651?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1594620302200-9a7612443651?w=600&amp;q=75" alt="Kominek elektryczny w nowoczesnym salonie" loading="lazy" />
+            <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&amp;q=75" alt="Kominek elektryczny w nowoczesnym salonie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1601567679314-ceebc42d752e?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1601567679314-ceebc42d752e?w=600&amp;q=75" alt="Sypialnia z tapicerowanym panelem ściennym" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&amp;q=75" alt="Sypialnia z tapicerowanym panelem ściennym" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1600607687644-a7f5f3c709c6?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1600607687644-a7f5f3c709c6?w=600&amp;q=75" alt="Łazienka z okrągłym lustrem i gres XL" loading="lazy" />
+            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1615873968403-89e068629265?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?w=600&amp;q=75" alt="Łazienka z okrągłym lustrem i gres XL" loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

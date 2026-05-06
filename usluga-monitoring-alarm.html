@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Monitoring CCTV, alarm antywłamaniowy i domofonia IP — dobór pozycji kamer, okablowanie PoE i integracja aplikacji." />
     <title>Monitoring i alarm — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -272,8 +272,8 @@
           </div>
 
           <div class="svc-gallery-mosaic">
-            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1557597774-9d27358ac9a5?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1557597774-9d27358ac9a5?w=900&amp;q=80" alt="Kamera monitoringu na elewacji" loading="lazy" />
+            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1723187024776-e3d4f6627e22?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1723187024776-e3d4f6627e22?w=900&amp;q=80" alt="Kamera monitoringu na elewacji" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=600&amp;q=75" alt="Wideodomofon przy wejściu" loading="lazy" />
@@ -284,11 +284,11 @@
             <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=600&amp;q=75" alt="Switch sieciowy i okablowanie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1614064641938-3bbee52913c6?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1614064641938-3bbee52913c6?w=600&amp;q=75" alt="Kamera PTZ na maszcie" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1765850262030-1ae93e474473?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1765850262030-1ae93e474473?w=600&amp;q=75" alt="Kamera PTZ na maszcie" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1613665763489-845dc00d61c7?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1613665763489-845dc00d61c7?w=600&amp;q=75" alt="Monitoring posesji domowej" loading="lazy" />
+            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=600&amp;q=75" alt="Monitoring posesji domowej" loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

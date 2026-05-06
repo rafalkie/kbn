@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Smart Home od KBN — oświetlenie rolety, HVAC, sterowanie scenami i integracja z alarmem — Podkarpacie." />
     <title>Automatyka domowa — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -275,20 +275,20 @@
             <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=900&amp;q=80" alt="Nowoczesny panel sterowania światłem" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1545259747-2078779d6e09?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1545259747-2078779d6e09?w=600&amp;q=75" alt="Interior z inteligentnym oświetleniem LED" loading="lazy" />
+            <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600&amp;q=75" alt="Interior z inteligentnym oświetleniem LED" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1545253081-9646718eec78?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1545253081-9646718eec78?w=600&amp;q=75" alt="Kuchnia premium z automatyką" loading="lazy" />
+            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&amp;q=75" alt="Kuchnia premium z automatyką" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&amp;q=75" alt="Salon inteligentnego domu" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1545253081-9646718eec78?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1545253081-9646718eec78?w=600&amp;q=75" alt="Detale oświetlenia rezydencjalnego" loading="lazy" />
+            <a class="svc-g-item svc-g-e" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&amp;q=75" alt="Detale oświetlenia rezydencjalnego" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1558346540-a1fcf8c793cb?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1558346540-a1fcf8c793cb?w=600&amp;q=75" alt="Wyświetlacz i przyciski przy wejściu" loading="lazy" />
+            <a class="svc-g-item svc-g-f" href="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&amp;q=75" alt="Wyświetlacz i przyciski przy wejściu" loading="lazy" />
             </a>
           </div>
         </div>
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

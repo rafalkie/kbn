@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>
       KBN Signature Homes – Budujemy standard, który wyprzedza przyszłość
     </title>
@@ -1497,6 +1497,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -1582,5 +1583,6 @@
       );
       counters.forEach((c) => observer.observe(c));
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

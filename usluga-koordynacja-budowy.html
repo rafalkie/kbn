@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Kierownik budowy KBN — harmonogram, ekipy, odbiory i komunikacja z branżami na Podkarpaciu." />
     <title>Koordynacja budowy — KBN Signature Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -272,14 +272,14 @@
           </div>
 
           <div class="svc-gallery-mosaic">
-            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1581094794329-c8112c89e12f?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1581094794329-c8112c89e12f?w=900&amp;q=80" alt="Inżynier na budowie z dokumentacją" loading="lazy" />
+            <a class="svc-g-item svc-g-a" href="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1600&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=900&amp;q=80" alt="Inżynier na budowie z dokumentacją" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-b" href="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&amp;q=75" alt="Konstrukcja i etap robót dachowych" loading="lazy" />
             </a>
-            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1664575602276-acdee344ffca?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
-              <img src="https://images.unsplash.com/photo-1664575602276-acdee344ffca?w=600&amp;q=75" alt="Planowanie harmonogramu prac" loading="lazy" />
+            <a class="svc-g-item svc-g-c" href="https://images.unsplash.com/photo-1770625467638-964f594712e3?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
+              <img src="https://images.unsplash.com/photo-1770625467638-964f594712e3?w=600&amp;q=75" alt="Planowanie harmonogramu prac" loading="lazy" />
             </a>
             <a class="svc-g-item svc-g-d" href="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&amp;q=80" target="_blank" rel="noopener noreferrer">
               <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&amp;q=75" alt="Spotkanie robocze przy projekcie" loading="lazy" />
@@ -421,6 +421,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -476,5 +477,6 @@
         });
       });
     </script>
+    <script src="./site-nav.js"></script>
   </body>
 </html>

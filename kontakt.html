@@ -2,7 +2,7 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Kontakt KBN Signature Homes — telefon, e-mail i formularz wyceny. Odpowiadamy w 24h."
@@ -608,6 +608,7 @@
       mainMenu?.querySelectorAll("a[href]").forEach((link) => {
         link.addEventListener("click", () => {
           if (window.matchMedia("(max-width: 968px)").matches) {
+            if (link.classList.contains("nav-mega-trigger")) return;
             setNavOpen(false);
           }
         });
@@ -681,5 +682,6 @@
       });
     </script>
 
+    <script src="./site-nav.js"></script>
   </body>
 </html>
