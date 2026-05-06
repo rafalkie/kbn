@@ -160,7 +160,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: clamp(16px, 3vw, 32px);
+        gap: clamp(28px, 4.2vw, 52px);
         height: 110px;
       }
       .navbar-logo {
@@ -210,26 +210,6 @@
         text-transform: uppercase;
         font-weight: 500;
       }
-      .navbar-cta {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        flex-shrink: 0;
-      }
-      .navbar-phone {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        transition: var(--transition);
-      }
-      .navbar-phone:hover {
-        color: var(--gold);
-      }
-      .navbar-phone strong {
-        color: var(--off-white);
-        font-weight: 600;
-      }
-
-      /* ─── MAIN MENU ────────────────────────────────────────────────── */
       .nav-toggle {
         display: none;
         flex-direction: column;
@@ -266,8 +246,26 @@
       .navbar-nav-wrap {
         flex: 1;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
+        align-items: center;
         min-width: 0;
+      }
+      .navbar-end {
+        display: none;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      @media (min-width: 969px) {
+        .navbar-end {
+          display: flex;
+        }
+      }
+      .btn-navbar-end {
+        padding: 12px 22px;
+        font-size: 0.71rem;
+        letter-spacing: 0.085em;
+        white-space: nowrap;
       }
       .navbar-nav {
         display: flex;
@@ -1673,6 +1671,7 @@
           display: inline-flex;
           align-items: center;
           justify-content: center;
+          margin-left: auto;
         }
         .navbar-nav-wrap {
           position: fixed;
@@ -1702,9 +1701,6 @@
         }
         body.nav-menu-open {
           overflow: hidden;
-        }
-        .navbar-cta {
-          margin-left: auto;
         }
         .navbar-nav {
           flex-direction: column;
