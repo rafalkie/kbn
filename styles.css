@@ -24,6 +24,9 @@
         --border: rgba(201, 168, 76, 0.18);
         --radius: 12px;
         --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI",
+          sans-serif;
+        --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
       }
 
       html {
@@ -31,7 +34,7 @@
       }
 
       body {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-sans);
         background: var(--navy-deep);
         color: var(--off-white);
         line-height: 1.6;
@@ -88,7 +91,7 @@
         background: var(--gold);
       }
       .section-title {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: clamp(1.8rem, 3.5vw, 2.8rem);
         font-weight: 700;
         color: var(--white);
@@ -118,7 +121,7 @@
         gap: 8px;
         padding: 14px 32px;
         border-radius: 4px;
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-sans);
         font-size: 0.85rem;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -179,11 +182,382 @@
       .navbar-logo img {
         height: var(--navbar-logo-h);
         width: auto;
-        filter: drop-shadow(0 2px 8px rgba(201, 168, 76, 0.25));
-        transition: var(--transition);
+        display: block;
       }
-      .navbar-logo:hover img {
-        filter: drop-shadow(0 4px 16px rgba(201, 168, 76, 0.5));
+
+      #navbar .navbar-logo {
+        position: relative;
+        isolation: isolate;
+        overflow: visible;
+      }
+      #navbar .navbar-logo img {
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 2px 8px rgba(201, 168, 76, 0.25));
+        transition:
+          filter 0.4s ease,
+          transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      #navbar .navbar-logo:hover img {
+        filter:
+          drop-shadow(0 4px 22px rgba(201, 168, 76, 0.55))
+          drop-shadow(0 0 32px rgba(255, 248, 210, 0.38));
+        transform: scale(1.02);
+      }
+
+      /* Brokat wyłącznie przy logo w #navbar — stopka używa tej samej klasy bez efektu */
+      #navbar .navbar-logo::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        inset: -32% -32%;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: 50%;
+        filter: blur(1px);
+        mix-blend-mode: screen;
+        background-image:
+          radial-gradient(
+            circle at 11% 24%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.55%
+          ),
+          radial-gradient(
+            circle at 24% 71%,
+            rgba(255, 248, 225, 1) 0%,
+            transparent 0.62%
+          ),
+          radial-gradient(
+            circle at 38% 18%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.58%
+          ),
+          radial-gradient(
+            circle at 52% 56%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.48%
+          ),
+          radial-gradient(
+            circle at 67% 31%,
+            rgba(255, 236, 200, 1) 0%,
+            transparent 0.72%
+          ),
+          radial-gradient(
+            circle at 8% 48%,
+            rgba(201, 168, 76, 0.95) 0%,
+            transparent 0.52%
+          ),
+          radial-gradient(
+            circle at 83% 22%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.5%
+          ),
+          radial-gradient(
+            circle at 72% 68%,
+            rgba(255, 252, 240, 1) 0%,
+            transparent 0.68%
+          ),
+          radial-gradient(
+            circle at 44% 82%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.55%
+          ),
+          radial-gradient(
+            circle at 19% 38%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.45%
+          ),
+          radial-gradient(
+            circle at 91% 61%,
+            rgba(255, 248, 230, 1) 0%,
+            transparent 0.6%
+          ),
+          radial-gradient(
+            circle at 33% 91%,
+            rgba(201, 168, 76, 0.92) 0%,
+            transparent 0.58%
+          ),
+          radial-gradient(
+            circle at 58% 12%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.52%
+          ),
+          radial-gradient(
+            circle at 76% 44%,
+            rgba(255, 236, 210, 1) 0%,
+            transparent 0.65%
+          ),
+          radial-gradient(
+            circle at 29% 54%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.5%
+          ),
+          radial-gradient(
+            circle at 95% 38%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.42%
+          ),
+          radial-gradient(
+            circle at 48% 34%,
+            rgba(255, 252, 245, 1) 0%,
+            transparent 0.58%
+          ),
+          radial-gradient(
+            circle at 62% 89%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.62%
+          ),
+          radial-gradient(
+            circle at 15% 82%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.48%
+          ),
+          radial-gradient(
+            circle at 88% 84%,
+            rgba(255, 242, 215, 1) 0%,
+            transparent 0.55%
+          ),
+          radial-gradient(
+            circle at 41% 47%,
+            rgba(201, 168, 76, 0.88) 0%,
+            transparent 0.45%
+          ),
+          radial-gradient(
+            circle at 56% 73%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.5%
+          ),
+          radial-gradient(
+            circle at 3% 62%,
+            rgba(255, 236, 200, 1) 0%,
+            transparent 0.7%
+          ),
+          radial-gradient(
+            circle at 97% 14%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.52%
+          );
+        background-size: 100% 100%;
+        -webkit-mask-image: radial-gradient(
+          ellipse 94% 148% at 50% 50%,
+          #000 14%,
+          #000 58%,
+          transparent 90%
+        );
+        mask-image: radial-gradient(
+          ellipse 94% 148% at 50% 50%,
+          #000 14%,
+          #000 58%,
+          transparent 90%
+        );
+      }
+
+      #navbar .navbar-logo::after {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        inset: -32% -32%;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: 50%;
+        filter: blur(5px);
+        mix-blend-mode: overlay;
+        background-image:
+          radial-gradient(
+            circle at 22% 36%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.6%
+          ),
+          radial-gradient(
+            circle at 78% 28%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.55%
+          ),
+          radial-gradient(
+            circle at 54% 62%,
+            rgba(255, 248, 225, 1) 0%,
+            transparent 0.5%
+          ),
+          radial-gradient(
+            circle at 36% 74%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.48%
+          ),
+          radial-gradient(
+            circle at 68% 52%,
+            rgba(201, 168, 76, 0.95) 0%,
+            transparent 0.58%
+          ),
+          radial-gradient(
+            circle at 12% 58%,
+            rgba(255, 252, 240, 1) 0%,
+            transparent 0.52%
+          ),
+          radial-gradient(
+            circle at 90% 72%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.44%
+          ),
+          radial-gradient(
+            circle at 46% 26%,
+            rgba(255, 236, 205, 1) 0%,
+            transparent 0.62%
+          ),
+          radial-gradient(
+            circle at 64% 81%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.54%
+          ),
+          radial-gradient(
+            circle at 30% 44%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.46%
+          ),
+          radial-gradient(
+            circle at 82% 46%,
+            rgba(255, 248, 230, 1) 0%,
+            transparent 0.56%
+          ),
+          radial-gradient(
+            circle at 58% 38%,
+            rgba(201, 168, 76, 0.9) 0%,
+            transparent 0.5%
+          ),
+          radial-gradient(
+            circle at 74% 18%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.42%
+          ),
+          radial-gradient(
+            circle at 40% 88%,
+            rgba(255, 236, 210, 1) 0%,
+            transparent 0.65%
+          ),
+          radial-gradient(
+            circle at 18% 22%,
+            rgba(201, 168, 76, 1) 0%,
+            transparent 0.52%
+          ),
+          radial-gradient(
+            circle at 96% 54%,
+            rgba(255, 255, 255, 1) 0%,
+            transparent 0.48%
+          );
+        background-size: 100% 100%;
+        -webkit-mask-image: radial-gradient(
+          ellipse 112% 158% at 50% 50%,
+          #000 0%,
+          #000 44%,
+          transparent 78%
+        );
+        mask-image: radial-gradient(
+          ellipse 112% 158% at 50% 50%,
+          #000 0%,
+          #000 44%,
+          transparent 78%
+        );
+      }
+
+      #navbar .navbar-logo:hover::before {
+        animation: navbar-logo-brokat-a 1.05s cubic-bezier(0.22, 1, 0.36, 1)
+          forwards;
+      }
+
+      #navbar .navbar-logo:hover::after {
+        animation: navbar-logo-brokat-b 1s cubic-bezier(0.25, 0.9, 0.32, 1)
+          0.07s forwards;
+      }
+
+      @keyframes navbar-logo-brokat-b {
+        0% {
+          opacity: 0;
+          transform: scale(0.9);
+          filter: blur(5px) brightness(1);
+        }
+        20% {
+          opacity: 1;
+          filter: blur(0.8px) brightness(1.42);
+        }
+        36% {
+          opacity: 0.48;
+          transform: scale(0.97);
+          filter: blur(2.2px) brightness(1.06);
+        }
+        52% {
+          opacity: 1;
+          transform: scale(1.02);
+          filter: blur(0.5px) brightness(1.58);
+        }
+        71% {
+          opacity: 0.52;
+          filter: blur(3px) brightness(1.1);
+        }
+        88% {
+          opacity: 0.82;
+          filter: blur(1px) brightness(1.35);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.93);
+          filter: blur(7px) brightness(1);
+        }
+      }
+
+      @keyframes navbar-logo-brokat-a {
+        0% {
+          opacity: 0;
+          transform: scale(0.86);
+          filter: blur(4px) brightness(1);
+        }
+        14% {
+          opacity: 1;
+          transform: scale(1.05);
+          filter: blur(0.6px) brightness(1.55);
+        }
+        26% {
+          opacity: 0.42;
+          transform: scale(0.98);
+          filter: blur(2px) brightness(1.08);
+        }
+        38% {
+          opacity: 1;
+          transform: scale(1.03);
+          filter: blur(0.4px) brightness(1.72);
+        }
+        52% {
+          opacity: 0.33;
+          transform: scale(0.96);
+          filter: blur(2.5px) brightness(1.05);
+        }
+        66% {
+          opacity: 0.92;
+          transform: scale(1.04);
+          filter: blur(0.7px) brightness(1.48);
+        }
+        80% {
+          opacity: 0.38;
+          filter: blur(1.8px) brightness(1.12);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.94);
+          filter: blur(6px) brightness(1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #navbar .navbar-logo:hover img {
+          transform: none;
+        }
+        #navbar .navbar-logo:hover::before,
+        #navbar .navbar-logo:hover::after {
+          animation: none !important;
+          opacity: 0 !important;
+        }
+      }
+
+      #footer .navbar-logo img {
+        filter: drop-shadow(0 2px 8px rgba(201, 168, 76, 0.22));
       }
       /* kept for footer fallback */
       .logo-badge {
@@ -194,7 +568,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.1rem;
         font-weight: 700;
         color: var(--navy-deep);
@@ -341,8 +715,8 @@
         top: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%);
-        width: min(940px, 92vw);
-        padding: 24px;
+        width: min(340px, 92vw);
+        padding: 14px 18px;
         background: rgba(13, 30, 56, 0.98);
         border: 1px solid var(--border);
         border-radius: 12px;
@@ -365,47 +739,26 @@
         }
       }
 
-      @media (max-width: 1200px) {
-        .nav-mega-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      .nav-mega-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px 28px;
-      }
-      .nav-mega-heading {
-        display: block;
-        font-size: 0.65rem;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--border);
-      }
-      .nav-mega-list {
+      .nav-mega-panel .nav-mega-list {
         list-style: none;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
       }
-      .nav-mega-list a {
-        font-size: 0.78rem;
-        font-weight: 500;
+      .nav-mega-panel .nav-mega-list a {
+        font-size: 0.72rem;
+        font-weight: 600;
         color: var(--off-white);
         line-height: 1.35;
         padding: 4px 0;
         border-radius: 0;
         transition: var(--transition);
-        text-transform: none;
-        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
       }
-      .nav-mega-list a:hover {
+      .nav-mega-panel .nav-mega-list a:hover {
         color: var(--gold);
       }
 
@@ -486,7 +839,7 @@
         }
       }
       .hero-title {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: clamp(2.4rem, 5vw, 4.2rem);
         font-weight: 700;
         line-height: 1.15;
@@ -517,7 +870,7 @@
         border-top: 1px solid var(--border);
       }
       .hero-stat-num {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 2rem;
         font-weight: 700;
         color: var(--gold);
@@ -1003,7 +1356,7 @@
       }
       .why-img-badge strong {
         display: block;
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 2.8rem;
         font-weight: 700;
         line-height: 1;
@@ -1092,7 +1445,7 @@
         border-right: none;
       }
       .stat-num {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 3rem;
         font-weight: 700;
         color: var(--gold);
@@ -1215,7 +1568,7 @@
         flex-shrink: 0;
       }
       .cs-title {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.1rem;
         font-weight: 700;
         color: var(--white);
@@ -1252,7 +1605,7 @@
         font-size: 0.92rem;
         font-weight: 700;
         color: var(--gold);
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
       }
       .cs-stat-lbl {
         font-size: 0.65rem;
@@ -1360,7 +1713,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.4rem;
         font-weight: 700;
         color: var(--gold);
@@ -1502,7 +1855,7 @@
         color: var(--gold);
       }
       .form-title {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--white);
@@ -1534,7 +1887,7 @@
         border: 1px solid var(--border);
         border-radius: 8px;
         color: var(--white);
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-sans);
         font-size: 0.85rem;
         transition: var(--transition);
         outline: none;
@@ -1630,31 +1983,6 @@
         max-width: 280px;
         line-height: 1.8;
       }
-      .footer-socials {
-        display: flex;
-        gap: 10px;
-        margin-top: 24px;
-      }
-      .footer-social {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-muted);
-        transition: var(--transition);
-      }
-      .footer-social:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-        background: rgba(201, 168, 76, 0.08);
-      }
-      .footer-social svg {
-        width: 15px;
-        height: 15px;
-      }
       .footer-col h5 {
         font-size: 0.72rem;
         font-weight: 800;
@@ -1697,7 +2025,7 @@
         padding: 22px 0;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 12px;
       }
@@ -1711,18 +2039,6 @@
       }
       .footer-bottom a:hover {
         color: var(--gold-light);
-      }
-      .footer-bottom-links {
-        display: flex;
-        gap: 24px;
-      }
-      .footer-bottom-links a {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        transition: var(--transition);
-      }
-      .footer-bottom-links a:hover {
-        color: var(--gold);
       }
 
       /* ─── MOBILE MENU ─────────────────────────────────────────────── */
@@ -1826,10 +2142,6 @@
         }
         .nav-mega.nav-mega-open .nav-mega-panel {
           display: block;
-        }
-        .nav-mega-grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
         }
         .nav-mega::before {
           display: none;
@@ -2137,7 +2449,7 @@
       }
 
       .process-detail-card h3 {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.12rem;
         color: var(--white);
         margin-bottom: 12px;
@@ -2229,7 +2541,9 @@
         position: relative;
         min-height: clamp(340px, 52vh, 520px);
         display: flex;
-        align-items: flex-end;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
         padding: 132px 0 72px;
         margin-top: 0;
         overflow: hidden;
@@ -2255,15 +2569,20 @@
       .svc-detail-hero .container {
         position: relative;
         z-index: 1;
+        width: 100%;
+        text-align: left;
       }
       .svc-detail-hero h1 {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: clamp(2rem, 4vw, 3rem);
         font-weight: 700;
         color: var(--white);
         line-height: 1.12;
-        max-width: 720px;
+        max-width: min(920px, 92vw);
+        margin-left: 0;
+        margin-right: auto;
         margin-bottom: 16px;
+        text-align: left;
       }
       .svc-detail-hero h1 span {
         color: var(--gold);
@@ -2273,28 +2592,40 @@
         color: var(--text-muted);
         max-width: 560px;
         line-height: 1.75;
+        margin-left: 0;
+        margin-right: auto;
         margin-bottom: 28px;
+        text-align: left;
       }
-      .svc-detail-metrics {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 28px 40px;
+
+      /* Hero usług: zdjęcie w tle — wyższy kontrast niż globalny text-muted */
+      .svc-detail-hero .page-breadcrumb {
+        font-size: 0.78rem;
+        justify-content: flex-start;
+        width: 100%;
+        color: rgba(255, 255, 255, 0.88);
+        text-shadow: 0 1px 2px rgba(6, 15, 30, 0.75);
       }
-      .svc-detail-metric {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+      .svc-detail-hero .page-breadcrumb a {
+        color: rgba(255, 255, 255, 0.82);
       }
-      .svc-detail-metric strong {
-        font-family: "Playfair Display", serif;
-        font-size: 1.35rem;
+      .svc-detail-hero .page-breadcrumb a:hover {
         color: var(--gold);
       }
-      .svc-detail-metric span {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--text-muted);
+      .svc-detail-hero .page-breadcrumb span.sep {
+        color: rgba(255, 255, 255, 0.55);
+        opacity: 1;
+      }
+      .svc-detail-hero .page-breadcrumb [aria-current="page"] {
+        color: var(--gold);
+        text-shadow: 0 1px 3px rgba(6, 15, 30, 0.9);
+      }
+      .svc-detail-hero .svc-detail-lead {
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 1px 3px rgba(6, 15, 30, 0.55);
+        margin-left: 0;
+        margin-right: auto;
+        text-align: left;
       }
 
       .svc-detail-intro {
@@ -2308,7 +2639,7 @@
         align-items: start;
       }
       .svc-detail-intro h2 {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: clamp(1.35rem, 2.5vw, 1.75rem);
         color: var(--white);
         margin-bottom: 16px;
@@ -2458,14 +2789,14 @@
         color: var(--gold);
       }
       .svc-pkg-name {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 1.35rem;
         font-weight: 700;
         color: var(--white);
         margin-bottom: 16px;
       }
       .svc-pkg-price {
-        font-family: "Playfair Display", serif;
+        font-family: var(--font-serif);
         font-size: 2rem;
         font-weight: 700;
         color: var(--gold);
@@ -2474,7 +2805,7 @@
       }
       .svc-pkg-price small {
         display: block;
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-sans);
         font-size: 0.72rem;
         font-weight: 600;
         color: var(--text-muted);
@@ -2658,9 +2989,6 @@
           padding-top: calc(env(safe-area-inset-top, 0px) + var(--navbar-h) + 12px);
           padding-bottom: 44px;
           min-height: min(420px, 72svh);
-        }
-        .svc-detail-metrics {
-          gap: 16px 24px;
         }
         #why-us,
         #portfolio,

@@ -11,43 +11,25 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 import service_pages_data as spd  # noqa: E402
 
-MEGA = [
-    (
-        "Budowa",
-        [
-            ("Budowa domów", "usluga-budowa-domow.html"),
-            ("Koordynacja budowy", "usluga-koordynacja-budowy.html"),
-        ],
-    ),
-    (
-        "Instalacje",
-        [
-            ("Instalacje elektryczne &amp; hydrauliczne", "usluga-instalacje-elektryczne-hydrauliczne.html"),
-            ("Pompa ciepła &amp; fotowoltaika", "usluga-pompa-fotowoltaika.html"),
-            ("Rekuperacja &amp; klimatyzacja", "usluga-rekuperacja-klimatyzacja.html"),
-        ],
-    ),
-    (
-        "Smart Home &amp; bezpieczeństwo",
-        [
-            ("Automatyka domowa", "usluga-automatyka-domowa.html"),
-            ("Monitoring &amp; alarm", "usluga-monitoring-alarm.html"),
-        ],
-    ),
-    (
-        "Wykończenia &amp; wnętrza",
-        [
-            ("Wykończenia pod klucz", "usluga-wykonczenia-pod-klucz.html"),
-            ("Projektowanie wnętrz", "usluga-projektowanie-wnetrz.html"),
-        ],
-    ),
+MEGA_LINKS = [
+    ("Budowa domów", "usluga-budowa-domow.html"),
+    ("Koordynacja budowy", "usluga-koordynacja-budowy.html"),
+    ("Instalacje elektryczne", "usluga-instalacje-elektryczne.html"),
+    ("Instalacje hydrauliczne", "usluga-instalacje-hydrauliczne.html"),
+    ("Rekuperacja", "usluga-rekuperacja.html"),
+    ("Klimatyzacja", "usluga-klimatyzacja.html"),
+    ("Automatyka domowa", "usluga-automatyka-domowa.html"),
+    ("Monitoring &amp; alarm", "usluga-monitoring-alarm.html"),
+    ("Wykończenia pod klucz", "usluga-wykonczenia-pod-klucz.html"),
+    ("Projektowanie wnętrz", "usluga-projektowanie-wnetrz.html"),
 ]
 
 OFFER_LINES = """              <li><a href="./usluga-budowa-domow.html">Budowa domów</a></li>
               <li><a href="./usluga-koordynacja-budowy.html">Koordynacja budowy</a></li>
-              <li><a href="./usluga-instalacje-elektryczne-hydrauliczne.html">Instalacje elektryczne &amp; hydrauliczne</a></li>
-              <li><a href="./usluga-pompa-fotowoltaika.html">Pompa ciepła &amp; fotowoltaika</a></li>
-              <li><a href="./usluga-rekuperacja-klimatyzacja.html">Rekuperacja &amp; klimatyzacja</a></li>
+              <li><a href="./usluga-instalacje-elektryczne.html">Instalacje elektryczne</a></li>
+              <li><a href="./usluga-instalacje-hydrauliczne.html">Instalacje hydrauliczne</a></li>
+              <li><a href="./usluga-rekuperacja.html">Rekuperacja</a></li>
+              <li><a href="./usluga-klimatyzacja.html">Klimatyzacja</a></li>
               <li><a href="./usluga-automatyka-domowa.html">Automatyka domowa</a></li>
               <li><a href="./usluga-monitoring-alarm.html">Monitoring &amp; alarm</a></li>
               <li><a href="./usluga-wykonczenia-pod-klucz.html">Wykończenia pod klucz</a></li>
@@ -55,30 +37,23 @@ OFFER_LINES = """              <li><a href="./usluga-budowa-domow.html">Budowa d
 
 
 def nav_mega(active_file: str) -> str:
-    parts = []
-    for heading, items in MEGA:
-        lis = []
-        for label, fname in items:
-            cur = ' aria-current="page"' if fname == active_file else ""
-            lis.append(
-                "                        <li>\n"
-                f'                          <a href="./{fname}"{cur}>{label}</a>\n'
-                "                        </li>"
-            )
-        parts.append(
-            f'                    <div>\n'
-            f'                      <span class="nav-mega-heading">{heading}</span>\n'
-            f'                      <ul class="nav-mega-list">\n'
-            f"{chr(10).join(lis)}\n"
-            f'                      </ul>\n'
-            f'                    </div>'
-        )
-    return "\n".join(parts)
+    lines = ['                  <ul class="nav-mega-list">']
+    marked_current = False
+    for label, fname in MEGA_LINKS:
+        base = fname.split("#", 1)[0]
+        cur = ""
+        if active_file and base == active_file and not marked_current:
+            cur = ' aria-current="page"'
+            marked_current = True
+        lines.append("                    <li>")
+        lines.append(f'                      <a href="./{fname}"{cur}>{label}</a>')
+        lines.append("                    </li>")
+    lines.append("                  </ul>")
+    return "\n".join(lines)
 
 
 def render_page(data: dict) -> str:
     active_file = data["file"]
-    m1, m2, m3 = data["metrics"]
     bli = "\n".join(f"                <li>{html.escape(b)}</li>" for b in data["bullets"])
     f1 = "\n".join(f"                <li>{html.escape(x)}</li>" for x in data["p1_features"])
     f2 = "\n".join(f"                <li>{html.escape(x)}</li>" for x in data["p2_features"])
@@ -107,7 +82,7 @@ def render_page(data: dict) -> str:
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -132,11 +107,9 @@ def render_page(data: dict) -> str:
                 <div
                   class="nav-mega-panel"
                   role="region"
-                  aria-label="Usługi według działów"
+                  aria-label="Lista usług"
                 >
-                  <div class="nav-mega-grid">
 {nav_mega(active_file)}
-                  </div>
                 </div>
               </li>
               <li><a href="./realizacje.html">Realizacje</a></li>
@@ -184,20 +157,6 @@ def render_page(data: dict) -> str:
           <p class="svc-detail-lead">
             {data['lead']}
           </p>
-          <div class="svc-detail-metrics">
-            <div class="svc-detail-metric">
-              <strong>{html.escape(m1[0])}</strong>
-              <span>{html.escape(m1[1])}</span>
-            </div>
-            <div class="svc-detail-metric">
-              <strong>{html.escape(m2[0])}</strong>
-              <span>{html.escape(m2[1])}</span>
-            </div>
-            <div class="svc-detail-metric">
-              <strong>{html.escape(m3[0])}</strong>
-              <span>{html.escape(m3[1])}</span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -356,25 +315,6 @@ def render_page(data: dict) -> str:
               Budujemy domy, które wyprzedzają przyszłość. Kompleksowa realizacja
               inwestycji z amerykańskim standardem w Polsce.
             </p>
-            <div class="footer-socials">
-              <a href="#" class="footer-social" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-              <a href="#" class="footer-social" aria-label="TikTok">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z"/>
-                </svg>
-              </a>
-              <a href="#" class="footer-social" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                </svg>
-              </a>
-            </div>
           </div>
 
           <div class="footer-col">
@@ -387,10 +327,8 @@ def render_page(data: dict) -> str:
           <div class="footer-col">
             <h5>Firma</h5>
             <ul>
-              <li><a href="#">O nas</a></li>
               <li><a href="./realizacje.html">Realizacje</a></li>
               <li><a href="./jak-pracujemy.html">Jak pracujemy</a></li>
-              <li><a href="#">Certyfikaty</a></li>
               <li><a href="./kontakt.html">Kontakt</a></li>
             </ul>
           </div>
@@ -402,20 +340,14 @@ def render_page(data: dict) -> str:
               <li>
                 <a href="mailto:kontakt@kbnsignature.pl">kontakt@kbnsignature.pl</a>
               </li>
-              <li><a href="#">Podkarpacie</a></li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>
-            © 2026 <a href="#">KBN Signature Homes</a>. Wszelkie prawa zastrzeżone.
+            © 2026 <a href="./index.html">KBN Signature Homes</a>. Wszelkie prawa zastrzeżone.
           </p>
-          <div class="footer-bottom-links">
-            <a href="#">Polityka prywatności</a>
-            <a href="#">Regulamin</a>
-            <a href="#">Cookies</a>
-          </div>
         </div>
       </div>
     </footer>
