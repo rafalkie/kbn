@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Podgląd testowy marki iPolska24 — strona nie jest powiązana z menu głównym."
+    />
+    <title>iPolska24 — podgląd testowy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /*
+        Zewnętrzny <use href="*.svg#id"> z dokumentu HTML bywa blokowany / nie rysowany
+        przez przeglądarki; sam plik ipolska24-logo.svg nadal poprawnie używa #root wewnątrz.
+      */
+      .ipolska24-brand {
+        position: relative;
+        margin: 28px 0 24px;
+        max-width: min(100%, 380px);
+      }
+
+      .ipolska24-brand-img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .ipolska24-external-root-hook {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .ipolska24-external-root-hook svg {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body class="page-sub">
+    <main class="page-hero">
+      <div class="container">
+        <div class="ipolska24-brand">
+          <span class="ipolska24-external-root-hook" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="100 110 225.2 63.46"
+            >
+              <use
+                href="ipolska24-logo.svg#root"
+                xlink:href="ipolska24-logo.svg#root"
+                width="225.2"
+                height="63.46"
+                x="100"
+                y="110"
+              ></use>
+            </svg>
+          </span>
+          <img
+            class="ipolska24-brand-img"
+            src="ipolska24-logo.svg"
+            alt="iPolska24"
+            width="226"
+            height="64"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
