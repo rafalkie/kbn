@@ -2248,10 +2248,26 @@
           bottom: max(20px, env(safe-area-inset-bottom, 20px));
         }
         #services {
-          padding: 64px 0 72px;
+          padding: 64px 0 96px;
         }
         .services-header {
           margin-bottom: 36px;
+        }
+      }
+
+      /* Mobile fixes — redundancje, gap-y, dopasowanie monogramu */
+      @media (max-width: 768px) {
+        /* hero-badge „KBN Signature Homes" siedzi tuż pod logiem o tej samej nazwie — schowaj na mobile */
+        .hero-badge {
+          display: none;
+        }
+        /* dwucyfrowe staty hero zwijały się z 40px gapem co dawało brzydki pionowy luz */
+        .hero-stats {
+          gap: 22px 32px;
+          padding-top: 24px;
+        }
+        .hero-stat-num {
+          font-size: 1.7rem;
         }
       }
 
@@ -2308,6 +2324,7 @@
           min-height: 260px;
         }
         #portfolio .cs-card.featured .cs-img-wrap {
+          width: 100%;
           min-height: min(340px, 46vw);
         }
         #portfolio .cs-card:not(.featured) .cs-img-wrap {
@@ -3217,7 +3234,7 @@
           padding: 64px 0;
         }
         #portfolio {
-          padding: 68px 0 80px;
+          padding: 68px 0 100px;
         }
         #stats {
           padding: 56px 0;
