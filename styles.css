@@ -1078,22 +1078,6 @@
       #portfolio,
       .svc-detail-intro {
         background-color: var(--navy-deep);
-        /* SG: Oferta + Nasze realizacje + intro podstron usług — skośne kreski */
-        background-image:
-          repeating-linear-gradient(
-            -32deg,
-            transparent,
-            transparent 52px,
-            rgba(130, 165, 215, 0.042) 52px,
-            rgba(130, 165, 215, 0.042) 53px
-          ),
-          repeating-linear-gradient(
-            32deg,
-            transparent,
-            transparent 52px,
-            rgba(255, 255, 255, 0.018) 52px,
-            rgba(255, 255, 255, 0.018) 53px
-          );
       }
       #services {
         padding: 100px 0;
@@ -1101,20 +1085,48 @@
         overflow: hidden;
         scroll-margin-top: var(--nav-scroll-offset);
       }
-      #services::before {
-        content: "";
+      #services::before,
+      #portfolio::before,
+      .svc-detail-intro::before {
+        content: "KBN";
         position: absolute;
-        top: -200px;
-        right: -200px;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(201, 168, 76, 0.04) 0%,
-          transparent 70%
-        );
+        font-family: var(--font-serif);
+        font-weight: 500;
+        font-size: clamp(2rem, 4.2vw, 3rem);
+        line-height: 0.88;
+        letter-spacing: 0.05em;
+        color: transparent;
+        -webkit-text-stroke: 1.2px rgba(201, 168, 76, 0.32);
+        padding-bottom: 0.28em;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.28);
         pointer-events: none;
-        z-index: 1;
+        user-select: none;
+        white-space: nowrap;
+        z-index: 0;
+      }
+      #services::after,
+      #portfolio::after,
+      .svc-detail-intro::after {
+        content: "SIGNATURE HOMES";
+        position: absolute;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: clamp(0.6rem, 0.9vw, 0.78rem);
+        letter-spacing: 0.5em;
+        color: rgba(201, 168, 76, 0.4);
+        text-transform: uppercase;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+        white-space: nowrap;
+      }
+      #services::before {
+        bottom: clamp(2.2rem, 4vw, 2.8rem);
+        right: clamp(1.25rem, 3vw, 3rem);
+      }
+      #services::after {
+        bottom: clamp(0.9rem, 1.6vw, 1.15rem);
+        right: clamp(1.25rem, 3vw, 3rem);
       }
       #services > .container {
         position: relative;
@@ -1477,7 +1489,20 @@
       #portfolio {
         padding: 100px 0;
         position: relative;
+        overflow: hidden;
         scroll-margin-top: var(--nav-scroll-offset);
+      }
+      #portfolio::before {
+        bottom: clamp(2.2rem, 4vw, 2.8rem);
+        left: clamp(1.25rem, 3vw, 3rem);
+      }
+      #portfolio::after {
+        bottom: clamp(0.9rem, 1.6vw, 1.15rem);
+        left: clamp(1.25rem, 3vw, 3rem);
+      }
+      #portfolio > .container {
+        position: relative;
+        z-index: 1;
       }
       .portfolio-header {
         display: flex;
@@ -2813,9 +2838,17 @@
       }
 
       .svc-detail-intro {
-        padding: 72px 0 56px;
+        padding: 72px 0 100px;
         position: relative;
         overflow: hidden;
+      }
+      .svc-detail-intro::before {
+        bottom: clamp(2.2rem, 4vw, 2.8rem);
+        right: clamp(1.25rem, 3vw, 3rem);
+      }
+      .svc-detail-intro::after {
+        bottom: clamp(0.9rem, 1.6vw, 1.15rem);
+        right: clamp(1.25rem, 3vw, 3rem);
       }
       .svc-detail-intro-inner {
         display: grid;
