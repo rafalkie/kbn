@@ -47,4 +47,11 @@
       }
     }).observe(navbar, { attributes: true, attributeFilter: ["class"] });
   }
+
+  function syncNavbarScrolled() {
+    if (!navbar) return;
+    navbar.classList.toggle("scrolled", window.scrollY > 60);
+  }
+  syncNavbarScrolled();
+  window.addEventListener("scroll", syncNavbarScrolled, { passive: true });
 })();

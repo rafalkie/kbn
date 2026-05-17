@@ -493,7 +493,6 @@
               <img
                 src="logo.png"
                 alt="KBN Signature Homes"
-                style="height: 64px"
               />
             </a>
             <p>
@@ -597,10 +596,6 @@
         },
         { passive: true },
       );
-
-      window.addEventListener("scroll", () => {
-        navbar?.classList.toggle("scrolled", window.scrollY > 60);
-      });
 
       document.querySelectorAll(".nav-mega").forEach((mega) => {
         let hideTimer = null;

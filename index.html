@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -148,18 +148,16 @@
 
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">KBN Signature Homes</div>
-
           <h1 class="hero-title">
             Budujemy standard,<br />
             który <span class="accent">wyprzedza</span><br />
             przyszłość
           </h1>
 
-          <p class="hero-subtitle">
-            Kompleksowa budowa domów, instalacje inteligentne i wykończenia pod
-            klucz. Twój dom — Twoje zasady. Nasze doświadczenie.
-          </p>
+          <div class="hero-signature hero-signature--row">
+            <p class="hero-signature-name">Kamil Nicpoń</p>
+            <span class="hero-signature-rule-right" aria-hidden="true"></span>
+          </div>
 
           <div class="hero-actions">
             <a href="./kontakt.html" class="btn btn-gold">
@@ -249,30 +247,10 @@
           </svg>
         </a>
       </div>
-
-      <!-- Scroll cue -->
-      <div class="hero-scroll">
-        <span>Odkryj więcej</span>
-        <div class="scroll-arrow">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </div>
-      </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ TRUST BAR -->
-    <div id="trust-bar">
+    <div id="trust-bar" class="section-banner-depth">
       <div class="container">
         <div class="trust-inner">
           <div class="trust-item">
@@ -359,7 +337,11 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════ SERVICES -->
-    <section id="services">
+    <section id="services" class="section-banner-depth">
+      <div
+        class="section-bg-depth section-bg-depth--offer-wallpaper"
+        aria-hidden="true"
+      ></div>
       <div class="container">
         <div class="services-header">
           <div>
@@ -751,7 +733,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ WHY US -->
-    <section id="why-us">
+    <section id="why-us" class="section-banner-depth">
       <div class="container">
         <div class="why-grid">
           <div class="why-visual">
@@ -852,7 +834,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ STATS -->
-    <section id="stats">
+    <section id="stats" class="section-banner-depth">
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item">
@@ -880,7 +862,11 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ CASE STUDIES -->
-    <section id="portfolio">
+    <section id="portfolio" class="section-banner-depth">
+      <div
+        class="section-bg-depth section-bg-depth--offer-wallpaper"
+        aria-hidden="true"
+      ></div>
       <div class="container">
         <div class="portfolio-header">
           <div class="portfolio-header-left">
@@ -1120,7 +1106,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════ PROCESS -->
-    <section id="process">
+    <section id="process" class="section-banner-depth">
       <div class="container">
         <div class="process-header">
           <div class="section-tag">Jak pracujemy</div>
@@ -1170,11 +1156,7 @@
         <div class="footer-top">
           <div class="footer-brand">
             <a href="index.html" class="navbar-logo">
-              <img
-                src="logo.png"
-                alt="KBN Signature Homes"
-                style="height: 64px"
-              />
+              <img src="logo.png" alt="KBN Signature Homes" />
             </a>
             <p>
               Budujemy domy, które wyprzedzają przyszłość. Kompleksowa
@@ -1391,11 +1373,6 @@
         },
         { passive: true },
       );
-
-      // Navbar scroll effect (tło paska przy przewijaniu)
-      window.addEventListener("scroll", () => {
-        navbar?.classList.toggle("scrolled", window.scrollY > 60);
-      });
 
       // Mega menu (desktop): pomost + klasa zamiast samego :hover — wolniejsze zamykanie
       document.querySelectorAll(".nav-mega").forEach((mega) => {

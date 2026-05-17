@@ -160,7 +160,14 @@ def render_page(data: dict) -> str:
         </div>
       </section>
 
-      <section class="svc-detail-intro" aria-labelledby="svc-intro-h2">
+      <section
+        class="svc-detail-intro section-banner-depth"
+        aria-labelledby="svc-intro-h2"
+      >
+        <div
+          class="section-bg-depth section-bg-depth--offer-wallpaper"
+          aria-hidden="true"
+        ></div>
         <div class="container">
           <div class="svc-detail-intro-inner">
             <div>
@@ -401,11 +408,6 @@ def render_page(data: dict) -> str:
         }},
         {{ passive: true }},
       );
-
-      window.addEventListener("scroll", () => {{
-        navbar?.classList.toggle("scrolled", window.scrollY > 60);
-      }});
-
       document.querySelectorAll(".nav-mega").forEach((mega) => {{
         let hideTimer = null;
         const isDesktop = () => window.matchMedia("(min-width: 969px)").matches;
