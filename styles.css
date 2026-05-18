@@ -1073,7 +1073,7 @@ a {
       transparent 52%
     );
 }
-/* Grafika energii/tapeta — bez nakładki ::after (pełny kontrast grafiki PNG). */
+/* Grafika energii/tapeta — SG: sekcja Oferta (#services); bez nakładki ::after (PNG). */
 .section-bg-depth.section-bg-depth--offer-wallpaper {
   background: none;
 }
@@ -1083,11 +1083,9 @@ a {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("assets/offer-section-energy.jpg");
-  background-size: cover;
-  background-position: left 18% bottom 10%;
-  background-repeat: no-repeat;
-  opacity: 0.2;
+  background-image: url("assets/offer-section-energy.png");
+  opacity: 1;
+ 
 }
 .section-bg-depth.section-bg-depth--offer-wallpaper::after {
   content: none;

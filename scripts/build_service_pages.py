@@ -165,7 +165,7 @@ def render_page(data: dict) -> str:
         aria-labelledby="svc-intro-h2"
       >
         <div
-          class="section-bg-depth section-bg-depth--offer-wallpaper"
+          class="section-bg-depth"
           aria-hidden="true"
         ></div>
         <div class="container">
