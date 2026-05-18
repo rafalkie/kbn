@@ -1073,22 +1073,15 @@ a {
       transparent 52%
     );
 }
-/* Grafika energii/tapeta — SG: sekcja Oferta (#services); bez nakładki ::after (PNG). */
-.section-bg-depth.section-bg-depth--offer-wallpaper {
-  background: none;
-}
-.section-bg-depth.section-bg-depth--offer-wallpaper::before {
-  content: "";
+/* Oferta (#services): neural-bg.js nad gradientem .section-bg-depth */
+#services.section-banner-depth > .section-neural-canvas {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
   pointer-events: none;
-  background-image: url("assets/offer-section-energy.png");
-  opacity: 1;
- 
-}
-.section-bg-depth.section-bg-depth--offer-wallpaper::after {
-  content: none;
 }
 .section-banner-depth > .container {
   position: relative;
@@ -2313,9 +2306,6 @@ a {
   .carousel-btn {
     width: 40px;
     height: 40px;
-  }
-  .section-bg-depth.section-bg-depth--offer-wallpaper::before {
-    background-position: center bottom;
   }
   #hero {
     min-height: 100vh;

@@ -338,10 +338,12 @@
 
     <!-- ═══════════════════════════════════════════════════════════ SERVICES -->
     <section id="services" class="section-banner-depth">
-      <div
-        class="section-bg-depth section-bg-depth--offer-wallpaper"
+      <div class="section-bg-depth" aria-hidden="true"></div>
+      <canvas
+        class="section-neural-canvas"
+        data-neural
         aria-hidden="true"
-      ></div>
+      ></canvas>
       <div class="container">
         <div class="services-header">
           <div>
@@ -1425,6 +1427,7 @@
       );
       counters.forEach((c) => observer.observe(c));
     </script>
+    <script src="./neural-bg.js"></script>
     <script src="./site-nav.js"></script>
   </body>
 </html>
