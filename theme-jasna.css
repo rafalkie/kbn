@@ -1,0 +1,25 @@
+/* Wariant jasniejszy — ta sama złota paleta, delikatnie rozjaśnione tło navy */
+
+html[data-theme="jasna"] {
+  --navy-black-rgb: 14, 22, 40;
+  --navy-deep-rgb: 18, 32, 54;
+  --navy-rgb: 26, 42, 68;
+  --navy-card-rgb: 24, 38, 62;
+  --navy-overlay-rgb: 28, 46, 74;
+  --navy-light-rgb: 38, 58, 88;
+  --navy-deep: #122036;
+  --navy: #1a2a44;
+  --navy-light: #263a58;
+  --navy-card: #18263e;
+
+  /* Złoto — ten sam charakter, nieco jaśniejsze odcienie */
+  --gold: #d4b06a;
+  --gold-light: #ead9a8;
+  --gold-pale: #faf0dc;
+  --gold-dim: #857045;
+  --gold-deep: #635030;
+  --gold-rgb: 212, 176, 106;
+
+  --off-white: #eef2f8;
+  --text-muted: #c2cce0;
+}

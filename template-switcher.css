@@ -1,0 +1,104 @@
+/* Podgląd szablonów — pływający przełącznik (strony index*) */
+.template-switcher {
+  position: fixed;
+  bottom: max(18px, env(safe-area-inset-bottom, 18px));
+  right: max(18px, env(safe-area-inset-right, 18px));
+  z-index: 10000;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.72rem;
+}
+
+.template-switcher__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  background: rgba(7, 14, 28, 0.92);
+  color: #f4e8c8;
+  font-size: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+}
+
+.template-switcher__toggle:hover {
+  border-color: #c5a059;
+  color: #fff;
+}
+
+.template-switcher__toggle svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.template-switcher__panel {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 8px;
+  min-width: 168px;
+  border-radius: 12px;
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  background: rgba(7, 14, 28, 0.96);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.template-switcher.is-open .template-switcher__panel {
+  display: flex;
+}
+
+.template-switcher__label {
+  padding: 4px 10px 2px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(180, 193, 217, 0.75);
+}
+
+.template-switcher__option {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #e8edf5;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.template-switcher__option:hover {
+  background: rgba(197, 160, 89, 0.12);
+  color: #fff;
+}
+
+.template-switcher__option.is-active {
+  background: rgba(197, 160, 89, 0.22);
+  color: #f4e8c8;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .template-switcher {
+    bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    right: max(12px, env(safe-area-inset-right, 12px));
+  }
+
+  .template-switcher__toggle {
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,190 @@
+/* Wariant granat — paleta jak WirtualneMedia.pl (#041727 / #092C48), złoto bez zmian */
+
+html[data-theme="granat"] {
+  --navy-black-rgb: 4, 23, 39;
+  --navy-deep-rgb: 4, 23, 39;
+  --navy-rgb: 9, 44, 72;
+  --navy-card-rgb: 12, 38, 62;
+  --navy-overlay-rgb: 9, 44, 72;
+  --navy-light-rgb: 18, 60, 92;
+  --navy-deep: #041727;
+  --navy: #092c48;
+  --navy-light: #123d5c;
+  --navy-card: #0c2640;
+
+  --off-white: #e8edf3;
+  --text-muted: #9eb0c4;
+
+  --gold: #c5a059;
+  --gold-light: #dfc382;
+  --gold-pale: #f4e8c8;
+  --gold-dim: #8a7040;
+  --gold-deep: #5a4520;
+  --gold-rgb: 197, 160, 89;
+
+  --border: rgba(var(--gold-rgb), 0.2);
+  --navbar-bg-scrolled: linear-gradient(
+    180deg,
+    rgba(var(--navy-rgb), 0.98) 0%,
+    rgba(var(--navy-deep-rgb), 0.96) 55%,
+    rgba(var(--navy-black-rgb), 0.97) 100%
+  );
+  --navbar-bg-solid: rgba(var(--navy-deep-rgb), 0.99);
+  --navbar-shadow: 0 4px 28px rgba(4, 23, 39, 0.42);
+}
+
+/* ── Belka menu — u góry niewidoczna, po scrollu granat + złoto ── */
+html[data-theme="granat"] #navbar:not(.scrolled):not(.nav-open) {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html[data-theme="granat"] #navbar:not(.scrolled):not(.nav-open) .navbar-logo::after {
+  display: none;
+}
+
+html[data-theme="granat"] #navbar.scrolled,
+html[data-theme="granat"] #navbar.nav-open {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--navy-rgb), 0.99) 0%,
+    rgba(var(--navy-deep-rgb), 0.98) 100%
+  );
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.38);
+  box-shadow: 0 8px 36px rgba(4, 23, 39, 0.55);
+}
+
+@media (min-width: 969px) {
+  html[data-theme="granat"] #navbar.scrolled:not(.nav-open) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+html[data-theme="granat"] #navbar.scrolled .navbar-logo::after,
+html[data-theme="granat"] #navbar.nav-open .navbar-logo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: min(52px, 62%);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(var(--gold-rgb), 0.55) 45%,
+    rgba(var(--gold-rgb), 0.55) 55%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+html[data-theme="granat"] .navbar-nav > li > a:not(.btn),
+html[data-theme="granat"] .navbar-nav > li > .nav-mega-trigger {
+  border-radius: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+html[data-theme="granat"] .navbar-nav > li > a:not(.btn):hover,
+html[data-theme="granat"] .navbar-nav > li > .nav-mega-trigger:hover,
+html[data-theme="granat"] .nav-mega.nav-mega-open .nav-mega-trigger {
+  background: rgba(var(--gold-rgb), 0.12);
+  color: var(--gold-light);
+}
+
+html[data-theme="granat"] .navbar-nav > li > a[aria-current="page"] {
+  background: rgba(var(--gold-rgb), 0.14);
+  color: var(--gold-light);
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+
+html[data-theme="granat"] .nav-mega-panel {
+  background: rgba(var(--navy-rgb), 0.98);
+  border-color: rgba(var(--gold-rgb), 0.22);
+  box-shadow: 0 22px 56px rgba(4, 23, 39, 0.52);
+}
+
+html[data-theme="granat"] .btn-navbar-end {
+  box-shadow:
+    0 2px 14px rgba(var(--gold-rgb), 0.22),
+    inset 0 1px 0 rgba(255, 250, 235, 0.12);
+}
+
+html[data-theme="granat"] .btn-navbar-end:hover {
+  box-shadow:
+    0 6px 22px rgba(var(--gold-rgb), 0.32),
+    inset 0 1px 0 rgba(255, 250, 235, 0.16);
+}
+
+html[data-theme="granat"] .nav-toggle {
+  border-color: rgba(var(--gold-rgb), 0.32);
+  background: rgba(var(--navy-light-rgb), 0.25);
+}
+
+html[data-theme="granat"] .nav-toggle:hover {
+  border-color: var(--gold);
+  background: rgba(var(--gold-rgb), 0.12);
+  color: var(--gold-light);
+}
+
+@media (max-width: 968px) {
+  html[data-theme="granat"] #navbar:not(.scrolled):not(.nav-open) .navbar-logo::after {
+    display: none;
+  }
+
+  html[data-theme="granat"] #navbar.scrolled,
+  html[data-theme="granat"] #navbar.nav-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--navbar-bg-solid);
+  }
+
+  html[data-theme="granat"] .navbar-nav-wrap {
+    border-top-color: rgba(var(--gold-rgb), 0.22);
+    background: linear-gradient(
+      180deg,
+      rgba(var(--navy-deep-rgb), 1) 0%,
+      rgba(var(--navy-black-rgb), 1) 100%
+    );
+  }
+}
+
+html[data-theme="granat"] .hero-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--navy-black-rgb), 0.78) 0%,
+      transparent 42%
+    ),
+    linear-gradient(
+      105deg,
+      rgba(var(--navy-deep-rgb), 0.94) 0%,
+      rgba(var(--navy-rgb), 0.78) 46%,
+      rgba(var(--navy-black-rgb), 0.45) 100%
+    );
+}
+
+html[data-theme="granat"] .section-bg-depth {
+  background:
+    radial-gradient(
+      ellipse 100% 72% at 50% -18%,
+      rgba(var(--navy-light-rgb), 0.28),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 62% 46% at 100% 88%,
+      rgba(var(--gold-rgb), 0.05),
+      transparent 54%
+    ),
+    radial-gradient(
+      ellipse 52% 44% at 0% 52%,
+      rgba(var(--navy-deep-rgb), 0.55),
+      transparent 58%
+    );
+}
