@@ -7,14 +7,37 @@
     { id: "default", label: "Domyślny", href: "./index.html" },
     { id: "jasna", label: "Jasna", href: "./index-jasna.html" },
     { id: "granat", label: "Granat", href: "./index-granat.html" },
+    { id: "granat-v2", label: "Granat v2", href: "./index-granat-v2.html" },
     { id: "redakcyjna", label: "Redakcyjna", href: "./index-redakcyjna.html" },
+    {
+      id: "redakcyjna-zlota",
+      label: "Delikatny złoty",
+      href: "./index-redakcyjna-zlota.html",
+    },
+    {
+      id: "redakcyjna-zlota-mocny",
+      label: "Mocny złoty",
+      href: "./index-redakcyjna-zlota-mocny.html",
+    },
   ];
 
   function detectTemplateId() {
     const path = window.location.pathname.toLowerCase();
     const file = path.split("/").pop() || "";
     if (file === "index-jasna.html" || path.includes("index-jasna")) return "jasna";
+    if (file === "index-granat-v2.html" || path.includes("index-granat-v2")) {
+      return "granat-v2";
+    }
     if (file === "index-granat.html" || path.includes("index-granat")) return "granat";
+    if (
+      file === "index-redakcyjna-zlota-mocny.html" ||
+      path.includes("index-redakcyjna-zlota-mocny")
+    ) {
+      return "redakcyjna-zlota-mocny";
+    }
+    if (file === "index-redakcyjna-zlota.html" || path.includes("index-redakcyjna-zlota")) {
+      return "redakcyjna-zlota";
+    }
     if (file === "index-redakcyjna.html" || path.includes("index-redakcyjna")) {
       return "redakcyjna";
     }
