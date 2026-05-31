@@ -1,0 +1,126 @@
+/* Menu v2.1 — jak ZDZ: blok pod ukos (li), tekst prostowany (link), hover na całym slocie */
+
+html[data-nav="v2.1"] {
+  --nav-v21-skew: 22deg;
+}
+
+html[data-nav="v2.1"] .navbar-end > .btn-navbar-end {
+  display: none !important;
+}
+
+@media (min-width: 969px) {
+  html[data-nav="v2.1"] #navbar .navbar-logo {
+    padding-right: 36px;
+  }
+
+  html[data-nav="v2.1"] .navbar-end > .navbar-phone {
+    border-right: none !important;
+    padding-right: 0;
+  }
+
+  html[data-nav="v2.1"] .navbar-nav-wrap,
+  html[data-nav="v2.1"] .navbar-nav {
+    overflow: visible;
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li > a:not(.btn)::after,
+  html[data-nav="v2.1"] .navbar-nav > li > .nav-mega-trigger::after {
+    display: none !important;
+  }
+
+  /* Blok / tło — przechylenie w lewo */
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) {
+    position: relative;
+    transform: skewX(calc(var(--nav-v21-skew) * -1));
+    transform-origin: center center;
+    background: rgba(var(--navy-deep-rgb), 0.42);
+    border-top: 1px solid rgba(var(--gold-rgb), 0.22);
+    border-bottom: 1px solid rgba(var(--gold-rgb), 0.22);
+    margin-right: 3px;
+    transition:
+      background 0.22s ease,
+      border-color 0.22s ease;
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile):first-child {
+    border-left: 1px solid rgba(var(--gold-rgb), 0.22);
+  }
+
+  /* Tekst — przechylenie w prawo (kompensacja, czytelna czcionka) */
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) > a:not(.btn),
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) > .nav-mega-trigger {
+    transform: skewX(var(--nav-v21-skew));
+    transform-origin: center center;
+    clip-path: none;
+    margin-left: 0;
+    background: transparent !important;
+    border: none;
+    box-shadow: none !important;
+    transition: color 0.22s ease;
+  }
+
+  /* Hover / aktywny — tło na przechylonym li, nie na linku */
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile):hover,
+  html[data-nav="v2.1"] .navbar-nav > li.nav-mega.nav-mega-open {
+    background: rgba(var(--gold-rgb), 0.14);
+    border-color: rgba(var(--gold-rgb), 0.38);
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile):has(> a[aria-current="page"]) {
+    background: rgba(var(--gold-rgb), 0.2);
+    border-color: rgba(var(--gold-rgb), 0.45);
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile):hover > a:not(.btn),
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile):hover > .nav-mega-trigger,
+  html[data-nav="v2.1"] .navbar-nav > li.nav-mega.nav-mega-open > .nav-mega-trigger {
+    color: var(--gold-light) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) > a[aria-current="page"] {
+    color: var(--gold-light) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Nadpisanie inset z menu-v2.css — hover zostaje na przechylonym li */
+  html[data-nav="v2.1"] .navbar-nav > li > a:not(.btn):hover,
+  html[data-nav="v2.1"] .navbar-nav > li > .nav-mega-trigger:hover,
+  html[data-nav="v2.1"] .nav-mega.nav-mega-open .nav-mega-trigger,
+  html[data-nav="v2.1"] .navbar-nav > li > a[aria-current="page"] {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Mega-panel — odkrzywienie względem przechylonego li */
+  html[data-nav="v2.1"] .nav-mega .nav-mega-panel {
+    transform: translateX(-50%) skewX(var(--nav-v21-skew));
+    transform-origin: top center;
+  }
+
+  html[data-nav="v2.1"] .nav-mega.nav-mega-open .nav-mega-chevron,
+  html[data-nav="v2.1"] .nav-mega:hover .nav-mega-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 968px) {
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) {
+    transform: none;
+    background: transparent;
+    border: none;
+    margin-right: 0;
+  }
+
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) > a:not(.btn),
+  html[data-nav="v2.1"] .navbar-nav > li:not(.navbar-phone-mobile) > .nav-mega-trigger {
+    transform: none;
+    background: transparent !important;
+  }
+
+  html[data-nav="v2.1"] .nav-mega .nav-mega-panel {
+    transform: none;
+  }
+}

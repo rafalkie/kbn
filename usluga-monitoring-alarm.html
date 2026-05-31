@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="pl" data-theme="granat-v2">
   <head>
+    <script>
+      (function () {
+        try {
+          var v = localStorage.getItem("kbn-nav-version");
+          if (v === "v2" || v === "v2.1" || v === "v2.2" || v === "v3") {
+            document.documentElement.setAttribute("data-nav", v);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Monitoring CCTV, alarm antywłamaniowy i domofonia IP — dobór pozycji kamer, okablowanie PoE i integracja aplikacji." />
@@ -13,6 +23,11 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="theme-granat-v2.css" />
+    <link rel="stylesheet" href="menu-v2.css" />
+    <link rel="stylesheet" href="menu-v2-1.css" />
+    <link rel="stylesheet" href="menu-v2-2.css" />
+    <link rel="stylesheet" href="menu-v3.css" />
+    <link rel="stylesheet" href="menu-switcher.css" />
   </head>
 
   <body class="page-sub">
@@ -425,5 +440,6 @@
       });
     </script>
     <script src="./site-nav.js"></script>
+    <script src="./menu-switcher.js"></script>
   </body>
 </html>
