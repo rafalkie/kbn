@@ -2687,6 +2687,7 @@ body.page-sub #navbar {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  background: none;
 }
 .jak-page-hero::before {
   content: "";
@@ -2707,6 +2708,59 @@ body.page-sub #navbar {
 .jak-page-hero .container {
   position: relative;
   z-index: 1;
+}
+
+/* Kontakt — inne zdjęcie w hero (bazuje na .jak-page-hero) */
+.contact-page-hero::before {
+  background-image:
+    linear-gradient(
+      165deg,
+      rgba(var(--navy-overlay-rgb), 0.93) 0%,
+      rgba(var(--navy-overlay-rgb), 0.82) 42%,
+      rgba(var(--navy-light-rgb), 0.74) 100%
+    ),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=80");
+  background-position: center 35%;
+}
+
+/* Realizacje — tapeta w hero (willa z katalogu) */
+.realizacje-page-hero::before {
+  background-image:
+    linear-gradient(
+      165deg,
+      rgba(var(--navy-overlay-rgb), 0.93) 0%,
+      rgba(var(--navy-overlay-rgb), 0.82) 42%,
+      rgba(var(--navy-light-rgb), 0.74) 100%
+    ),
+    url("https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=1800&q=80");
+  background-position: center 40%;
+}
+
+/* O nas — tapeta w hero */
+.o-nas-page-hero::before {
+  background-image:
+    linear-gradient(
+      165deg,
+      rgba(var(--navy-overlay-rgb), 0.93) 0%,
+      rgba(var(--navy-overlay-rgb), 0.82) 42%,
+      rgba(var(--navy-light-rgb), 0.74) 100%
+    ),
+    url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=80");
+  background-position: center 45%;
+}
+
+.about-page #about-us {
+  border-bottom: none;
+}
+
+.about-page-story {
+  padding: clamp(56px, 8vw, 88px) 0;
+}
+
+.about-page-stats {
+  padding: 72px 0 88px;
+  background: var(--navy-deep);
+  border-top: 1px solid var(--border);
 }
 
 .portfolio-filters {
@@ -2754,11 +2808,7 @@ body.page-sub #navbar {
   padding-top: 48px;
 }
 
-.page-contact-main .page-hero {
-  padding-bottom: 36px;
-}
-
-.page-contact-main #contact.contact-subsection {
+.process-page #contact.contact-subsection {
   padding-top: 36px;
 }
 

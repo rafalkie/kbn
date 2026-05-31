@@ -327,7 +327,10 @@ html[data-theme="granat-v2"] .svc-gallery-section,
 html[data-theme="granat-v2"] .process-page #process,
 html[data-theme="granat-v2"] .process-detail-lead,
 html[data-theme="granat-v2"] .process-principles,
-html[data-theme="granat-v2"] .page-contact-main #contact,
+html[data-theme="granat-v2"] .about-page-story,
+html[data-theme="granat-v2"] .about-page-stats,
+html[data-theme="granat-v2"] .about-page #about-us,
+html[data-theme="granat-v2"] #contact.contact-subsection,
 html[data-theme="granat-v2"] .page-cta {
   border-top: 1px solid var(--section-gold-line);
   box-shadow: inset 0 1px 0 rgba(var(--gold-rgb), 0.1);

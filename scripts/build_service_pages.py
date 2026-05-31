@@ -99,6 +99,7 @@ def render_page(data: dict) -> str:
           <div class="navbar-nav-wrap" id="main-menu">
             <ul class="navbar-nav">
               <li><a href="./index.html">Strona główna</a></li>
+              <li><a href="./o-nas.html">O nas</a></li>
               <li class="nav-mega">
                 <a href="./index.html#services" class="nav-mega-trigger">
                   Usługi
@@ -334,6 +335,7 @@ def render_page(data: dict) -> str:
           <div class="footer-col">
             <h5>Firma</h5>
             <ul>
+              <li><a href="./o-nas.html">O nas</a></li>
               <li><a href="./realizacje.html">Realizacje</a></li>
               <li><a href="./jak-pracujemy.html">Jak pracujemy</a></li>
               <li><a href="./kontakt.html">Kontakt</a></li>
