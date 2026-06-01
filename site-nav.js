@@ -50,7 +50,9 @@
 
   function syncNavbarScrolled() {
     if (!navbar) return;
-    navbar.classList.toggle("scrolled", window.scrollY > 60);
+    var compact = window.scrollY > 60;
+    navbar.classList.toggle("scrolled", compact);
+    document.body.classList.toggle("nav-logo-compact", compact);
   }
   syncNavbarScrolled();
   window.addEventListener("scroll", syncNavbarScrolled, { passive: true });
