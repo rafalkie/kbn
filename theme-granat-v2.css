@@ -254,6 +254,29 @@ html[data-theme="granat-v2"] #about-us {
   box-shadow: inset 0 1px 0 rgba(var(--gold-rgb), 0.1);
 }
 
+html[data-theme="granat-v2"] body.page-home #about-us .section-bg-depth,
+html[data-theme="granat-v2"] .about-page #about-us .section-bg-depth {
+  background:
+    linear-gradient(
+      112deg,
+      rgba(var(--navy-black-rgb), 0.93) 0%,
+      rgba(var(--navy-deep-rgb), 0.84) 40%,
+      rgba(var(--navy-rgb), 0.58) 70%,
+      rgba(var(--navy-black-rgb), 0.8) 100%
+    ),
+    radial-gradient(
+      ellipse 100% 72% at 50% -18%,
+      rgba(var(--navy-light-rgb), 0.2),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 62% 46% at 100% 88%,
+      rgba(var(--gold-rgb), 0.07),
+      transparent 54%
+    ),
+    url("assets/bg-house.webp") center 42% / cover no-repeat;
+}
+
 html[data-theme="granat-v2"] #services,
 html[data-theme="granat-v2"] #why-us,
 html[data-theme="granat-v2"] #stats,

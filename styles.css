@@ -1087,6 +1087,32 @@ a {
   display: block;
   pointer-events: none;
 }
+body.page-home #about-us .section-bg-depth,
+.about-page #about-us .section-bg-depth {
+  background:
+    linear-gradient(
+      112deg,
+      rgba(var(--navy-black-rgb), 0.94) 0%,
+      rgba(var(--navy-deep-rgb), 0.82) 38%,
+      rgba(var(--navy-rgb), 0.62) 68%,
+      rgba(var(--navy-black-rgb), 0.78) 100%
+    ),
+    radial-gradient(
+      ellipse 100% 72% at 50% -18%,
+      rgba(var(--navy-light-rgb), 0.22),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 62% 46% at 100% 88%,
+      rgba(var(--gold-rgb), 0.06),
+      transparent 54%
+    ),
+    url("assets/bg-house.webp") center 42% / cover no-repeat;
+}
+body.page-home #about-us.section-banner-depth > .section-neural-canvas,
+.about-page #about-us.section-banner-depth > .section-neural-canvas {
+  opacity: 0.28;
+}
 .section-banner-depth > .container {
   position: relative;
   z-index: 3;
