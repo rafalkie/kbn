@@ -1077,8 +1077,9 @@ a {
       transparent 52%
     );
 }
-/* O nas (#about-us): neural-bg.js nad gradientem .section-bg-depth */
-#about-us.section-banner-depth > .section-neural-canvas {
+/* #about-us / #process (SG): neural-bg.js nad gradientem .section-bg-depth */
+#about-us.section-banner-depth > .section-neural-canvas,
+body.page-home #process.section-banner-depth > .section-neural-canvas {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -1088,7 +1089,8 @@ a {
   pointer-events: none;
 }
 body.page-home #about-us .section-bg-depth,
-.about-page #about-us .section-bg-depth {
+.about-page #about-us .section-bg-depth,
+body.page-home #process .section-bg-depth {
   background:
     linear-gradient(
       112deg,
@@ -1110,8 +1112,23 @@ body.page-home #about-us .section-bg-depth,
     url("assets/bg-house.webp") center 42% / cover no-repeat;
 }
 body.page-home #about-us.section-banner-depth > .section-neural-canvas,
-.about-page #about-us.section-banner-depth > .section-neural-canvas {
+.about-page #about-us.section-banner-depth > .section-neural-canvas,
+body.page-home #process.section-banner-depth > .section-neural-canvas {
   opacity: 0.28;
+}
+body.page-home #about-us .about-story-lead,
+.about-page #about-us .about-story-lead {
+  color: #ffffff;
+}
+body.page-home #about-us .about-story .section-subtitle,
+.about-page #about-us .about-story .section-subtitle,
+body.page-home #about-us .about-story p,
+.about-page #about-us .about-story p {
+  color: #e6edf7;
+}
+body.page-home #about-us .about-founder-note,
+.about-page #about-us .about-founder-note {
+  color: #d8e3f2;
 }
 .section-banner-depth > .container {
   position: relative;
@@ -1938,6 +1955,20 @@ body.page-home #about-us.section-banner-depth > .section-neural-canvas,
   padding: 100px 0;
   background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
   scroll-margin-top: var(--nav-scroll-offset);
+}
+body.page-home #process {
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+body.page-home #process .section-title {
+  color: #ffffff;
+}
+body.page-home #process .process-step h4 {
+  color: #ffffff;
+}
+body.page-home #process .process-step p {
+  color: #e6edf7;
 }
 .process-header {
   text-align: center;

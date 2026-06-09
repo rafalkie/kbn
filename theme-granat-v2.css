@@ -255,7 +255,8 @@ html[data-theme="granat-v2"] #about-us {
 }
 
 html[data-theme="granat-v2"] body.page-home #about-us .section-bg-depth,
-html[data-theme="granat-v2"] .about-page #about-us .section-bg-depth {
+html[data-theme="granat-v2"] .about-page #about-us .section-bg-depth,
+html[data-theme="granat-v2"] body.page-home #process .section-bg-depth {
   background:
     linear-gradient(
       112deg,
